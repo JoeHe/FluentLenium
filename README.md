@@ -425,7 +425,7 @@ public void checkLoginFailed() {
 ```
 
 ###Page usage
-You can use the annotation `@Page` to construct your page easily.
+You can use the annotation `@Inject` to construct your page easily.
 
 For example:
 
@@ -433,7 +433,7 @@ For example:
 public class AnnotationInitialization extends FluentTest {
     public WebDriver webDriver = new HtmlUnitDriver();
 
-    @Page
+    @Inject
     public TestPage page;
 
 
@@ -451,7 +451,7 @@ public class AnnotationInitialization extends FluentTest {
 
 }
 ```
-It's now possible to use the `@Page` annotation in a FluentPage.
+It's now possible to use the `@Inject` annotation in a FluentPage.
 
 You can also use the factory method `createPage`:
 
@@ -776,7 +776,7 @@ For instance, to run your tests on [BrowserStack](https://browserstack.com)
 ```
 
 ### Base Url
-If you want to defined a default base url, just override the `getDefaultBaseUrl` method in your test. Every pages create with @Page will also use this variable.
+If you want to defined a default base url, just override the `getDefaultBaseUrl` method in your test. Every pages create with @Inject will also use this variable.
 If a base url is provided, the current url will be relative to that base url.
 
 ### TimeOut
