@@ -2,13 +2,18 @@ package org.fluentlenium.core;
 
 import lombok.experimental.Delegate;
 import org.fluentlenium.core.annotation.PageUrl;
+import org.fluentlenium.core.page.PageAnnotations;
+import org.openqa.selenium.By;
 
 /**
  * Use the Page Object Pattern to have more resilient tests.
  */
 public abstract class FluentPage implements FluentPageControl {
 
-    protected FluentPage() {}
+    private PageAnnotations pageAnnotations = new PageAnnotations(getClass());
+
+    protected FluentPage() {
+    }
 
     protected FluentPage(FluentControl control) {
         initPage(control);
@@ -38,6 +43,8 @@ public abstract class FluentPage implements FluentPageControl {
 
     @Override
     public void isAt() {
+        By by = pageAnnotations.buildBy();
+        findFirst(by);
     }
 
     @Override
